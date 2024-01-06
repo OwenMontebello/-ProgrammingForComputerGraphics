@@ -123,50 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &39531702
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 39531704}
-  - component: {fileID: 39531703}
-  m_Layer: 0
-  m_Name: 20SecondTimerToFreeroam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &39531703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39531702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09fff1707633f9547b1a7374fb85fd0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &39531704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39531702}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 503.23892, y: 1022.39557, z: -178.10236}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217207661
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,11 +208,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 612707491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dac2ed70c1e87143ab875c06bf07791, type: 3}
+  m_Script: {fileID: 11500000, guid: f06ebe7f7647b3440a9f134564953253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  housePrefab: {fileID: 7735892926313936359, guid: d0b411a920787c64ebae6941f8a15db1, type: 3}
-  numberOfHouses: 6
+  housePrefabs:
+  - {fileID: 8506342344992740943, guid: d563910a73b120f4ba390d50afc38da4, type: 3}
+  - {fileID: 7735892926313936359, guid: d0b411a920787c64ebae6941f8a15db1, type: 3}
+  numberOfHouses: 5
   spawnArea: {x: 500, y: 500}
 --- !u!1 &705507993
 GameObject:
@@ -479,6 +437,50 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1194704699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1194704701}
+  - component: {fileID: 1194704700}
+  m_Layer: 0
+  m_Name: TimerNextLevel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1194704700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194704699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fff1707633f9547b1a7374fb85fd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1194704701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194704699}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 154.49716, y: 797.6458, z: -16.456915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1212843185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5045124740444416754, guid: 03f238cc7e350fe44897ab2173e48d3e, type: 3}
@@ -822,4 +824,4 @@ SceneRoots:
   - {fileID: 1454817670}
   - {fileID: 1966900281}
   - {fileID: 3386710955662821673}
-  - {fileID: 39531704}
+  - {fileID: 1194704701}

@@ -69,10 +69,13 @@
     <Compile Include="Assets\Script\Car.cs" />
     <Compile Include="Assets\Script\House.cs" />
     <Compile Include="Assets\Script\HouseSpawner.cs" />
+    <Compile Include="Assets\Script\Wall2.cs" />
     <Compile Include="Assets\Script\Road.cs" />
     <Compile Include="Assets\Script\Plane.cs" />
     <Compile Include="Assets\Script\RoadBorder.cs" />
+    <Compile Include="Assets\Script\House2.cs" />
     <Compile Include="Assets\Script\Wall.cs" />
+    <Compile Include="Assets\Script\HouseSpawner2.cs" />
     <Compile Include="Assets\Script\Materials.cs" />
     <Compile Include="Assets\Script\Cube.cs" />
     <Compile Include="Assets\Script\RoadSegment.cs" />

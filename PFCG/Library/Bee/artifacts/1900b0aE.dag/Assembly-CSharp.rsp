@@ -357,7 +357,9 @@
 "Assets/Script/Car.cs"
 "Assets/Script/Cube.cs"
 "Assets/Script/House.cs"
+"Assets/Script/House2.cs"
 "Assets/Script/HouseSpawner.cs"
+"Assets/Script/HouseSpawner2.cs"
 "Assets/Script/Materials.cs"
 "Assets/Script/MeshBuilder.cs"
 "Assets/Script/Plane.cs"
@@ -367,6 +369,7 @@
 "Assets/Script/SceneLoader.cs"
 "Assets/Script/StreetRoad.cs"
 "Assets/Script/Wall.cs"
+"Assets/Script/Wall2.cs"
 -langversion:9.0
 
 /deterministic
