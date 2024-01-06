@@ -63,6 +63,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\SceneLoader.cs" />
     <Compile Include="Assets\Script\StreetRoad.cs" />
     <Compile Include="Assets\Script\MeshBuilder.cs" />
     <Compile Include="Assets\Script\Car.cs" />

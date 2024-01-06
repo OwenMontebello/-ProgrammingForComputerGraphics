@@ -364,6 +364,7 @@
 "Assets/Script/Road.cs"
 "Assets/Script/RoadBorder.cs"
 "Assets/Script/RoadSegment.cs"
+"Assets/Script/SceneLoader.cs"
 "Assets/Script/StreetRoad.cs"
 "Assets/Script/Wall.cs"
 -langversion:9.0
