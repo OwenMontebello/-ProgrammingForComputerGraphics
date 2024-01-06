@@ -69,7 +69,7 @@ public class RoadBorder : MonoBehaviour
 {
     // Define material properties
     Material pavementMaterial = new Material(Shader.Find("Specular"));
-    pavementMaterial.color = Color.grey;
+    pavementMaterial.color = Color.red;
 
     Material laneMaterial = new Material(Shader.Find("Specular"));
     laneMaterial.color = Color.black;

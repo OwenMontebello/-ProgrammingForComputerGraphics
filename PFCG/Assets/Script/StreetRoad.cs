@@ -15,124 +15,67 @@ public class StreetRoad : MonoBehaviour
     float roadMarkingWidth = 1f;
     float roadMarkingHeight = 2f;
 
-
-    [SerializeField]
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         GameObject leftRoad = new GameObject();
         leftRoad.name = "Left Road";
-        leftRoad.transform.position = new Vector3(
-            this.transform.position.x -666f,
-            this.transform.position.y -364.62f,
-            this.transform.position.z + 513f);
+        leftRoad.transform.position = new Vector3(this.transform.position.x - 666f, this.transform.position.y - 364.62f, this.transform.position.z + 513f);
         leftRoad.transform.parent = this.transform;
         CreateRoadSegment(leftRoad);
         leftRoad.transform.localScale = new Vector3(5f, 1f, 25f);
 
         GameObject rightRoad = new GameObject();
         rightRoad.name = "Right Road";
-        rightRoad.transform.position = new Vector3(
-            this.transform.position.x -666f,
-            this.transform.position.y -364.62f,
-            this.transform.position.z + 513f);
+        rightRoad.transform.position = new Vector3(this.transform.position.x - 666f, this.transform.position.y - 364.62f, this.transform.position.z + 513f);
         rightRoad.transform.parent = this.transform;
         CreateRoadSegment(rightRoad);
         rightRoad.transform.localScale = new Vector3(0f, 0f, 0f);
-
-
     }
 
+    private void CreateRoadSegment(GameObject parentRoad)
+    {
+        Material pavementMaterial = CreateStandardMaterial(Color.grey);
+        Material laneMaterial = CreateStandardMaterial(Color.black);
+        Material roadMarkingMaterial = CreateStandardMaterial(Color.white);
 
-    private void CreateRoadSegment(GameObject parentRoad){
+      
+        GameObject leftPavement = CreateSegment("Left Pavement", pavementWidth, pavementHeight, depth, parentRoad.transform.position, parentRoad, laneMaterial);
 
-        Material pavementMaterial = new Material(Shader.Find("Specular"));
-        pavementMaterial.color = Color.grey;
+       
+        Vector3 leftLanePos = new Vector3(leftPavement.transform.position.x + pavementWidth + laneWidth, leftPavement.transform.position.y, leftPavement.transform.position.z);
+        GameObject leftLane = CreateSegment("Left Lane", laneWidth, laneHeight, depth, leftLanePos, parentRoad, laneMaterial);
 
-        Material laneMaterial = new Material(Shader.Find("Specular"));
-        laneMaterial.color = Color.black;
+    
+        Vector3 roadMarkPos = new Vector3(leftLane.transform.position.x + laneWidth + roadMarkingWidth, leftLane.transform.position.y, leftLane.transform.position.z);
+        GameObject roadMark = CreateSegment("Road Mark", roadMarkingWidth, roadMarkingHeight, depth, roadMarkPos, parentRoad, roadMarkingMaterial);
 
-        Material roadMarkingMaterial = new Material(Shader.Find("Specular"));
-        roadMarkingMaterial.color = Color.white;
+  
+        Vector3 rightLanePos = new Vector3(roadMark.transform.position.x + roadMarkingWidth + laneWidth, roadMark.transform.position.y, roadMark.transform.position.z);
+        GameObject rightLane = CreateSegment("Right Lane", laneWidth, laneHeight, depth, rightLanePos, parentRoad, laneMaterial);
 
-        List<Material> pavementMaterialList = new List<Material>();
-        pavementMaterialList.Add(pavementMaterial);
-
-        List<Material> laneMaterialList = new List<Material>();
-        laneMaterialList.Add(pavementMaterial);
-
-        List<Material> roadMarkingMaterialList = new List<Material>();
-        roadMarkingMaterialList.Add(pavementMaterial);
-
-
-        //left pavement
-        GameObject leftPavement = new GameObject();
-        leftPavement.name = "Left Pavement";
-        leftPavement.AddComponent<RoadSegment>();
-        leftPavement.GetComponent<RoadSegment>().SetSize(
-                new Vector3(pavementWidth,pavementHeight, depth));
-        leftPavement.GetComponent<RoadSegment>().
-            UpdateMaterialsList(pavementMaterialList);
-        leftPavement.transform.position = parentRoad.transform.position;
-        leftPavement.transform.parent = parentRoad.transform;
-
-        //left lane
-        GameObject leftLane = new GameObject();
-        leftLane.name = "Left Lane";
-        leftLane.AddComponent<RoadSegment>();
-        leftLane.GetComponent<RoadSegment>().SetSize(
-            new Vector3(laneWidth, laneHeight, depth));
-        leftLane.GetComponent<RoadSegment>().UpdateMaterialsList(
-            laneMaterialList);
-        leftLane.transform.position = new Vector3(
-            leftPavement.transform.position.x + pavementWidth + laneWidth,
-            leftPavement.transform.position.y,
-            leftPavement.transform.position.z);
-        leftLane.transform.parent = parentRoad.transform;
         
-        //white road marking
-        GameObject roadMark = new GameObject();
-        roadMark.name = "Road Mark";
-        roadMark.AddComponent<RoadSegment>();
-        roadMark.GetComponent<RoadSegment>().SetSize(
-            new Vector3(roadMarkingWidth, roadMarkingHeight, depth));
-        roadMark.GetComponent<RoadSegment>().UpdateMaterialsList(
-            roadMarkingMaterialList);
-        roadMark.transform.position = new Vector3(
-            leftLane.transform.position.x + laneWidth + roadMarkingWidth,
-            leftLane.transform.position.y,
-            leftLane.transform.position.z);
-        roadMark.transform.parent = parentRoad.transform;
-
-        //right lane
-        GameObject rightLane = new GameObject();
-        rightLane.name = "Right Lane";
-        rightLane.AddComponent<RoadSegment>();
-        rightLane.GetComponent<RoadSegment>().SetSize(
-            new Vector3(laneWidth, laneHeight, depth));
-        rightLane.GetComponent<RoadSegment>().UpdateMaterialsList(
-            laneMaterialList);
-        rightLane.transform.position = new Vector3(
-            roadMark.transform.position.x + roadMarkingWidth + laneWidth,
-            roadMark.transform.position.y,
-            roadMark.transform.position.z);
-        rightLane.transform.parent = parentRoad.transform;
-
-        //right pavement
-        GameObject rightPavement = new GameObject();
-        rightPavement.name = "Right Pavement";
-        rightPavement.AddComponent<RoadSegment>();
-        rightPavement.GetComponent<RoadSegment>().SetSize(
-            new Vector3(pavementWidth, pavementHeight, depth));
-        rightPavement.GetComponent<RoadSegment>().UpdateMaterialsList(
-            pavementMaterialList);
-        rightPavement.transform.position = new Vector3(
-            rightLane.transform.position.x + laneWidth + pavementWidth,
-            rightLane.transform.position.y,
-            rightLane.transform.position.z);
-        rightPavement.transform.parent = parentRoad.transform;
+        Vector3 rightPavementPos = new Vector3(rightLane.transform.position.x + laneWidth + pavementWidth, rightLane.transform.position.y, rightLane.transform.position.z);
+        GameObject rightPavement = CreateSegment("Right Pavement", pavementWidth, pavementHeight, depth, rightPavementPos, parentRoad, laneMaterial);
     }
 
+    private GameObject CreateSegment(string name, float width, float height, float depth, Vector3 position, GameObject parent, Material material)
+    {
+        GameObject segment = new GameObject(name);
+        segment.AddComponent<RoadSegment>();
+        segment.GetComponent<RoadSegment>().SetSize(new Vector3(width, height, depth));
+        segment.GetComponent<RoadSegment>().UpdateMaterialsList(new List<Material>() { material });
+        segment.transform.position = position;
+        segment.transform.parent = parent.transform;
+        return segment;
+    }
 
+    private Material CreateStandardMaterial(Color color)
+    {
+        Material material = new Material(Shader.Find("Standard"));
+        material.color = color;
+        material.SetFloat("_Metallic", 2.5f); 
+        material.SetFloat("_Glossiness", 0.5f); 
+        return material;
+    }
 }

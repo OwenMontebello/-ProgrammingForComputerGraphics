@@ -4,39 +4,36 @@ using UnityEngine;
 
 public class Materials 
 {
-    private List<Material> MaterialsList;
+    private List<Material> materialsList;
 
-    public Materials(){
-        
-        MaterialsList = new List<Material>();
+    public Materials()
+    {
+        materialsList = new List<Material>();
 
-        Material redMaterial = new Material(Shader.Find("Specular"));
-        redMaterial.color = Color.red;
+        // Create materials with the Standard Shader
+        Material redMaterial = CreateStandardMaterial(Color.red);
+        Material blueMaterial = CreateStandardMaterial(Color.blue);
+        Material greenMaterial = CreateStandardMaterial(Color.green);
+        Material yellowMaterial = CreateStandardMaterial(Color.yellow);
+        Material whiteMaterial = CreateStandardMaterial(Color.white);
+        Material blackMaterial = CreateStandardMaterial(Color.black);
 
-        Material blueMaterial = new Material(Shader.Find("Specular"));
-        blueMaterial.color = Color.blue;
-
-        Material greenMaterial = new Material(Shader.Find("Specular"));
-        greenMaterial.color = Color.green;
-
-        Material yellowMaterial = new Material(Shader.Find("Specular"));
-        yellowMaterial.color = Color.yellow;       
-
-        Material whiteMaterial = new Material(Shader.Find("Specular"));
-        whiteMaterial.color = Color.white; 
-
-        Material blackMaterial = new Material(Shader.Find("Specular"));
-        blackMaterial.color = Color.black; 
-
-        MaterialsList.Add(redMaterial);
-        MaterialsList.Add(blueMaterial);
-        MaterialsList.Add(greenMaterial);
-        MaterialsList.Add(yellowMaterial);
-        MaterialsList.Add(whiteMaterial);
-        MaterialsList.Add(blackMaterial);
+        // Add materials to the list
+        materialsList.AddRange(new Material[] { redMaterial, blueMaterial, greenMaterial, yellowMaterial, whiteMaterial, blackMaterial });
     }
 
-    public List<Material> GetMaterialsList(){
-        return MaterialsList;
+    private Material CreateStandardMaterial(Color color)
+    {
+        Material material = new Material(Shader.Find("Standard"));
+        material.color = color;
+        material.SetFloat("_Metallic", 2f); 
+        material.SetFloat("_Glossiness", 0.5f); 
+
+        return material;
+    }
+
+    public List<Material> GetMaterialsList()
+    {
+        return materialsList;
     }
 }
