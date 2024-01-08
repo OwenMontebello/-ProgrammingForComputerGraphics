@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 239894515}
   - component: {fileID: 239894514}
   - component: {fileID: 239894513}
+  - component: {fileID: 239894517}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -149,15 +150,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239894512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cf4e364daf0633479b072d7d8a832ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heightMapImage: {fileID: 2800000, guid: dfbeb0e0b4800aa4e9fd2ecf63bece6a, type: 3}
   heightMapScale: {x: 1.5, y: 1, z: 1.5}
-  loadHeightMap: 1
-  flattenTerrainOnExit: 1
+  loadHeightMap: 0
+  flattenTerrainOnExit: 0
   loadHeightMapInEditMode: 0
   flattenTerrainInEditMode: 0
 --- !u!154 &239894514
@@ -234,6 +235,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239894517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239894512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b920a8b119cc0740ae42ce64079ce2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRandomHeightRange: 0
+  maxRandomHeightRange: 0.01
+  flattenTerrain: 1
+  perlinNoise: 1
+  perlinNoiseWidthScale: 0.01
+  perlinNoiseHeightScale: 0.01
 --- !u!1 &806750179
 GameObject:
   m_ObjectHideFlags: 0

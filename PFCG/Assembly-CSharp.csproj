@@ -79,6 +79,7 @@
     <Compile Include="Assets\Script\HouseSpawner2.cs" />
     <Compile Include="Assets\Script\Materials.cs" />
     <Compile Include="Assets\Script\Cube.cs" />
+    <Compile Include="Assets\Script\RandomHeihtsGen.cs" />
     <Compile Include="Assets\Script\RoadSegment.cs" />
   </ItemGroup>
   <ItemGroup>

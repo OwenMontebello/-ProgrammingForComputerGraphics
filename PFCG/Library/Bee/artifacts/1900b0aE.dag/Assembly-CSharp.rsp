@@ -364,6 +364,7 @@
 "Assets/Script/Materials.cs"
 "Assets/Script/MeshBuilder.cs"
 "Assets/Script/Plane.cs"
+"Assets/Script/RandomHeihtsGen.cs"
 "Assets/Script/Road.cs"
 "Assets/Script/RoadBorder.cs"
 "Assets/Script/RoadSegment.cs"
