@@ -156,9 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightMapImage: {fileID: 2800000, guid: dfbeb0e0b4800aa4e9fd2ecf63bece6a, type: 3}
   heightMapScale: {x: 1.5, y: 1, z: 1.5}
-  loadHeightMap: 0
-  flattenTerrainOnExit: 0
-  loadHeightMapInEditMode: 1
+  loadHeightMap: 1
+  flattenTerrainOnExit: 1
+  loadHeightMapInEditMode: 0
   flattenTerrainInEditMode: 0
 --- !u!154 &239894514
 TerrainCollider:

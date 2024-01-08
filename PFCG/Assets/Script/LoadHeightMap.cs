@@ -16,6 +16,8 @@ public class LoadHeightMap : MonoBehaviour
     [SerializeField]
     private Vector3 heightMapScale = new Vector3(1, 1, 1);
 
+
+    [Header("Play")]
     [SerializeField]
     private bool loadHeightMap = true;
 
@@ -23,6 +25,7 @@ public class LoadHeightMap : MonoBehaviour
     [SerializeField]
     private bool flattenTerrainOnExit = true;
 
+    [Header("Editor")]
     [SerializeField]
     private bool loadHeightMapInEditMode = false;
 
@@ -32,10 +35,16 @@ public class LoadHeightMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //terrain = this.GetComponent<Terrain>();
-        //terrainData = Terrain.activeTerrain.terrainData;
+        if(terrain == null){
+          terrain = this.GetComponent<Terrain>();
+        }
+       
+       if(terrainData == null){
+           terrainData = Terrain.activeTerrain.terrainData;
+       }
+     
 
-        if(loadHeightMap){
+        if(Application.IsPlaying(gameObject) && loadHeightMap){
            LoadHeightMapImage();
         }
         
@@ -43,8 +52,9 @@ public class LoadHeightMap : MonoBehaviour
     }
 
     void LoadHeightMapImage(){
-        terrain = this.GetComponent<Terrain>();
-        terrainData = Terrain.activeTerrain.terrainData;
+
+
+
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
         for(int width = 0; width < terrainData.heightmapResolution; width++){
@@ -58,6 +68,9 @@ public class LoadHeightMap : MonoBehaviour
     }
 
         void flattenTerrain(){
+
+
+
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
 
         for(int width = 0; width < terrainData.heightmapResolution; width++){
@@ -72,6 +85,14 @@ public class LoadHeightMap : MonoBehaviour
 
     void OnValidate()
     {
+        if(terrain == null){
+          terrain = this.GetComponent<Terrain>();
+        }
+       
+       if(terrainData == null){
+           terrainData = Terrain.activeTerrain.terrainData;
+       }
+
         if(flattenTerrainInEditMode){
             flattenTerrain();
         }else if (loadHeightMapInEditMode){
@@ -80,6 +101,7 @@ public class LoadHeightMap : MonoBehaviour
     }
 
     void OnDestroy(){
+
         if(flattenTerrainOnExit){
             flattenTerrain();
         }
