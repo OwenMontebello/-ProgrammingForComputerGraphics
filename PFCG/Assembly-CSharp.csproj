@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\House.cs" />
     <Compile Include="Assets\Script\HouseSpawner.cs" />
     <Compile Include="Assets\Script\Wall2.cs" />
+    <Compile Include="Assets\Script\LoadHeightMap.cs" />
     <Compile Include="Assets\Script\Road.cs" />
     <Compile Include="Assets\Script\Plane.cs" />
     <Compile Include="Assets\Script\RoadBorder.cs" />

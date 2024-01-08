@@ -360,6 +360,7 @@
 "Assets/Script/House2.cs"
 "Assets/Script/HouseSpawner.cs"
 "Assets/Script/HouseSpawner2.cs"
+"Assets/Script/LoadHeightMap.cs"
 "Assets/Script/Materials.cs"
 "Assets/Script/MeshBuilder.cs"
 "Assets/Script/Plane.cs"
