@@ -154,8 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf4e364daf0633479b072d7d8a832ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightMapImage: {fileID: 2800000, guid: cdf14ba77fa6b454091c48989e24d7b7, type: 3}
-  heightMapScale: {x: 1, y: 1, z: 1}
+  heightMapImage: {fileID: 2800000, guid: dfbeb0e0b4800aa4e9fd2ecf63bece6a, type: 3}
+  heightMapScale: {x: 1.5, y: 1, z: 1.5}
+  loadHeightMap: 0
+  flattenTerrainOnExit: 0
+  loadHeightMapInEditMode: 1
+  flattenTerrainInEditMode: 0
 --- !u!154 &239894514
 TerrainCollider:
   m_ObjectHideFlags: 0
