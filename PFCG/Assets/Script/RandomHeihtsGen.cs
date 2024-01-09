@@ -85,7 +85,6 @@ public class RandomHeihtsGen : MonoBehaviour
     [SerializeField]
     private float pathDepth = 0.02f;
     private int numberOfPathPoints = 5;
-
     [Header("Cloud")]
     [SerializeField]
     private GameObject cloudPrefab; 
@@ -96,13 +95,9 @@ public class RandomHeihtsGen : MonoBehaviour
     [SerializeField]
     private Vector2 cloudSizeRange = new Vector2(10f, 50f); 
 
-    [Header("Rain")]
+    [Header("Sky")]
     [SerializeField]
-    private GameObject rainPrefab;
-
-
-
-
+    private Material skyboxMaterial;
 
 
 
@@ -120,14 +115,31 @@ public class RandomHeihtsGen : MonoBehaviour
        AddTerrainTexture();
        AddTrees();
        AddClouds();
-       AddRain();
        AddWater();
+       AddSky();
 
 
     }
 
     void Update(){
+
+        //AddSky();
     }
+
+private void AddSky()
+{
+    if(skyboxMaterial != null)
+    {
+        Material skyboxMaterialInstance = new Material(skyboxMaterial);
+        RenderSettings.skybox = skyboxMaterialInstance;
+
+        //float rotation = Random.Range(0f, 360f);
+        //skyboxMaterialInstance.SetFloat("_Rotation", rotation);
+
+        //DynamicGI.UpdateEnvironment();
+    }
+}
+
 
     private void GeneratePath()
 {
@@ -381,16 +393,6 @@ private void SmoothPathEdges()
         cloud.transform.localScale = new Vector3(cloudScale, cloudScale, cloudScale);
         cloud.transform.parent = this.transform; 
     }
-}
-
-    private void AddRain()
-{
-    
-    GameObject rain = Instantiate(rainPrefab, this.transform.position, Quaternion.identity);
-    rain.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
-
-
-    rain.transform.parent = this.transform;
 }
 
      private void OnDestroy(){

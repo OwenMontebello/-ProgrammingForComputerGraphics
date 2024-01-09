@@ -9689,7 +9689,7 @@ MonoBehaviour:
   WindChangeInterval: {x: 5, y: 30}
   EnableWind: 1
   RainHeight: 25
-  RainForwardOffset: -7
+  RainForwardOffset: 0
   RainMistHeight: 3
 --- !u!1 &177510
 GameObject:

@@ -14304,7 +14304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
-  FollowCamera: 1
+  FollowCamera: 0
   RainSoundLight: {fileID: 0}
   RainSoundMedium: {fileID: 0}
   RainSoundHeavy: {fileID: 0}
@@ -14325,5 +14325,5 @@ MonoBehaviour:
   CollisionMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  CollisionLifeTimeRain: 0.02
-  RainMistCollisionMultiplier: 0.75
+  CollisionLifeTimeRain: 0.5
+  RainMistCollisionMultiplier: 0.99

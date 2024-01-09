@@ -118,6 +118,7 @@
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
+    <None Include="Assets\SimpleSky\ReadMe.txt" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
