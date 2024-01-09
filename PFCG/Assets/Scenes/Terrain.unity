@@ -299,7 +299,12 @@ MonoBehaviour:
   numberOfClouds: 10
   cloudHeightRange: {x: 500, y: 600}
   cloudSizeRange: {x: 1, y: 1}
-  rainPrefab: {fileID: 191326, guid: b046278bb9b6e104790392b566667ba5, type: 3}
+  skyboxMaterial: {fileID: 2100000, guid: e68f77e240a7f8643b5cc4253dc37516, type: 2}
+  rainPrefab: {fileID: 5475779893549250031, guid: 96592700c796b9449a43562ee9829712, type: 3}
+  rainPositionOffset: {x: 0, y: 50, z: 0}
+  rainScale: 1
+  fog: {fileID: 0}
+  fogHeight: 0.3
 --- !u!1 &806750179
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +411,7 @@ GameObject:
   - component: {fileID: 1148693203}
   - component: {fileID: 1148693202}
   - component: {fileID: 1148693205}
+  - component: {fileID: 1148693206}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -480,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148693201}
   serializedVersion: 2
-  m_LocalRotation: {x: 3e-45, y: -1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: -1e-45, y: -1e-45, z: 0, w: 1}
   m_LocalPosition: {x: 191.9, y: 368.5, z: -52.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -521,6 +527,18 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1148693206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148693201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17418bbc7eb1794e80c606ddb17d319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1271227519
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271227519}
   serializedVersion: 2
-  m_LocalRotation: {x: 3e-45, y: -1e-45, z: 0, w: 1}
+  m_LocalRotation: {x: -1e-45, y: -1e-45, z: -0, w: 1}
   m_LocalPosition: {x: 191.9, y: 368.5, z: -52.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

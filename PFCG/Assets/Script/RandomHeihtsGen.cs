@@ -99,6 +99,24 @@ public class RandomHeihtsGen : MonoBehaviour
     [SerializeField]
     private Material skyboxMaterial;
 
+    [Header("Rain")]
+    [SerializeField]
+    private GameObject rainPrefab;
+    [SerializeField]
+    private Vector3 rainPositionOffset = new Vector3(0, 50, 0); 
+
+    [SerializeField]
+    private float rainScale = 1f;
+
+    [Header("Fog")]
+    [SerializeField]
+    private GameObject fog;
+
+    [SerializeField]
+    private float fogHeight = 0.3f;
+
+
+
 
 
     void Start()
@@ -117,6 +135,7 @@ public class RandomHeihtsGen : MonoBehaviour
        AddClouds();
        AddWater();
        AddSky();
+       AddRain();
 
 
     }
@@ -125,6 +144,27 @@ public class RandomHeihtsGen : MonoBehaviour
 
         //AddSky();
     }
+
+    private void AddRain()
+{
+    if (rainPrefab != null)
+    {
+        GameObject rainGameObject = Instantiate(rainPrefab, this.transform.position + rainPositionOffset, Quaternion.identity);
+        rainGameObject.name = "Rain";
+        rainGameObject.transform.localScale = new Vector3(rainScale, rainScale, rainScale);
+        rainGameObject.transform.parent = this.transform; // Parent to terrain to keep the scene organized
+    }
+}
+
+    private void AddFog(){
+        GameObject fogGameObject = Instantiate(fog, this.transform.position, this.transform.rotation);
+        fogGameObject.name = "Fog";
+        fogGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, fogHeight * terrainData.size.y, terrainData.size.z / 2);
+        fogGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
+    }
+
+
+
 
 private void AddSky()
 {
