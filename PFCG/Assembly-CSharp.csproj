@@ -59,37 +59,51 @@
     <UnityVersion>2022.3.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Users\icere\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Water Float\Core\WaterFloat.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\SimpleAirPlaneController.cs" />
     <Compile Include="Assets\Script\StreetRoad.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\SimpleAirPlaneCollider.cs" />
     <Compile Include="Assets\Script\MeshBuilder.cs" />
     <Compile Include="Assets\Script\House.cs" />
     <Compile Include="Assets\Script\HouseSpawner.cs" />
     <Compile Include="Assets\Script\Wall2.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\LandingArea.cs" />
     <Compile Include="Assets\Script\RoadBorder.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Script\House2.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Script\Wall.cs" />
     <Compile Include="Assets\Script\HouseSpawner2.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\Script\Cube.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\RunwayUIManager.cs" />
     <Compile Include="Assets\Script\RoadSegment.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\Script\SceneLoader.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
     <Compile Include="Assets\Script\Car.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
     <Compile Include="Assets\Script\LoadHeightMap.cs" />
     <Compile Include="Assets\Script\Road.cs" />
     <Compile Include="Assets\Script\Plane.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\SimpleAirplaneCamera.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
     <Compile Include="Assets\Script\Materials.cs" />
+    <Compile Include="Assets\HeneGames\Simple Airplane Controller\Scripts\Runway.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\Displace.cs" />
     <Compile Include="Assets\Script\RandomHeihtsGen.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
@@ -99,6 +113,7 @@
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
+    <None Include="Assets\RainMaker\Readme.txt" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
@@ -106,6 +121,7 @@
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ImageEffects\Readme.txt" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\Water Float\Demo\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />

@@ -79,6 +79,26 @@ public class RandomHeihtsGen : MonoBehaviour
     [SerializeField]
     private float waterHeight = 0.3f;
 
+    [Header("Path")]
+    [SerializeField]
+    private float pathWidth = 10f;
+    [SerializeField]
+    private float pathDepth = 0.02f;
+    private int numberOfPathPoints = 5;
+
+    [Header("Cloud")]
+    [SerializeField]
+    private GameObject cloudPrefab; 
+    [SerializeField]
+    private int numberOfClouds = 10;
+    [SerializeField]
+    private Vector2 cloudHeightRange = new Vector2(100f, 200f); 
+    [SerializeField]
+    private Vector2 cloudSizeRange = new Vector2(10f, 50f); 
+
+    [Header("Rain")]
+    [SerializeField]
+    private GameObject rainPrefab;
 
 
 
@@ -96,8 +116,11 @@ public class RandomHeihtsGen : MonoBehaviour
        }
        
        GenerateHeights();
+       GeneratePath();
        AddTerrainTexture();
        AddTrees();
+       AddClouds();
+       AddRain();
        AddWater();
 
 
@@ -105,6 +128,57 @@ public class RandomHeihtsGen : MonoBehaviour
 
     void Update(){
     }
+
+    private void GeneratePath()
+{
+    float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapResolution, terrainData.heightmapResolution);
+    
+  
+    List<Vector2> pathPoints = new List<Vector2>();
+    for (int i = 0; i < numberOfPathPoints; i++)
+    {
+        pathPoints.Add(new Vector2(Random.Range(0, terrainData.heightmapResolution), Random.Range(0, terrainData.heightmapResolution)));
+    }
+    
+
+    for (int i = 0; i < pathPoints.Count - 1; i++)
+    {
+        Vector2 startPoint = pathPoints[i];
+        Vector2 endPoint = pathPoints[i + 1];
+        Vector2 currentPoint = startPoint;
+        
+        while ((currentPoint - endPoint).sqrMagnitude > 1)
+        {
+            int x = Mathf.RoundToInt(currentPoint.x);
+            int z = Mathf.RoundToInt(currentPoint.y);
+            
+           
+            for (int zOffset = -Mathf.RoundToInt(pathWidth / 2); zOffset <= Mathf.RoundToInt(pathWidth / 2); zOffset++)
+            {
+                for (int xOffset = -Mathf.RoundToInt(pathWidth / 2); xOffset <= Mathf.RoundToInt(pathWidth / 2); xOffset++)
+                {
+                    int xIndex = Mathf.Clamp(x + xOffset, 0, terrainData.heightmapResolution - 1);
+                    int zIndex = Mathf.Clamp(z + zOffset, 0, terrainData.heightmapResolution - 1);
+                    heightMap[zIndex, xIndex] = Mathf.Max(heightMap[zIndex, xIndex] - pathDepth, 0);
+                }
+            }
+            
+          
+            currentPoint = Vector2.MoveTowards(currentPoint, endPoint, 1);
+        }
+    }
+    
+    terrainData.SetHeights(0, 0, heightMap);
+}
+
+
+
+private void SmoothPathEdges()
+{
+    float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapResolution, terrainData.heightmapResolution);
+    terrainData.SetHeights(0, 0, heightMap);
+}
+    
 
    private void GenerateHeights(){
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
@@ -288,6 +362,36 @@ public class RandomHeihtsGen : MonoBehaviour
         terrainData.size.z / 2);
         waterGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
      }
+
+     private void AddClouds()
+{
+    for (int i = 0; i < numberOfClouds; i++)
+    {
+       
+        float xPosition = Random.Range(0, terrainData.size.x);
+        float zPosition = Random.Range(0, terrainData.size.z);
+        float yPosition = Random.Range(cloudHeightRange.x, cloudHeightRange.y);
+
+        Vector3 cloudPosition = new Vector3(xPosition, yPosition, zPosition) + this.transform.position;
+
+        float cloudScale = Random.Range(cloudSizeRange.x, cloudSizeRange.y);
+
+      
+        GameObject cloud = Instantiate(cloudPrefab, cloudPosition, Quaternion.identity);
+        cloud.transform.localScale = new Vector3(cloudScale, cloudScale, cloudScale);
+        cloud.transform.parent = this.transform; 
+    }
+}
+
+    private void AddRain()
+{
+    
+    GameObject rain = Instantiate(rainPrefab, this.transform.position, Quaternion.identity);
+    rain.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
+
+
+    rain.transform.parent = this.transform;
+}
 
      private void OnDestroy(){
 

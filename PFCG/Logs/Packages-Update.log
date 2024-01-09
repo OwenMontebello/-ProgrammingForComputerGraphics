@@ -71,3 +71,11 @@ The following packages were added:
   com.unity.render-pipelines.universal@14.0.9
   com.unity.shadergraph@14.0.9
   com.unity.test-framework@1.1.33
+
+=== Tue Jan  9 14:52:44 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.cinemachine from version 2.8.9 to 2.9.5
