@@ -103,20 +103,19 @@ public class RandomHeihtsGen : MonoBehaviour
     [SerializeField]
     private GameObject rainPrefab;
     [SerializeField]
-    private Vector3 rainPositionOffset = new Vector3(0, 50, 0); 
+    private Vector2 rainHeightRange = new Vector2(40, 60);
 
     [SerializeField]
     private float rainScale = 1f;
 
     [Header("Fog")]
     [SerializeField]
-    private GameObject fog;
-
+    private GameObject fogPrefab;
     [SerializeField]
-    private float fogHeight = 0.3f;
-
-
-
+    private Vector3 fogPositionOffset = new Vector3(0, 0, 0);
+    [SerializeField]
+    private float fogScale = 1f;
+    
 
 
     void Start()
@@ -136,6 +135,9 @@ public class RandomHeihtsGen : MonoBehaviour
        AddWater();
        AddSky();
        AddRain();
+       AddFog();
+       
+       //SpawnPlaneAtFixedHeight();
 
 
     }
@@ -145,26 +147,46 @@ public class RandomHeihtsGen : MonoBehaviour
         //AddSky();
     }
 
+    /* private void SpawnPlaneAtFixedHeight()
+    {
+        
+        float randomX = Random.Range(-terrainWidth / 2, terrainWidth / 2);
+        float randomZ = Random.Range(-terrainLength / 2, terrainLength / 2);
+        Vector3 spawnPosition = new Vector3(randomX, fixedHeight, randomZ);
+
+        Instantiate(planePrefab, spawnPosition, Quaternion.identity);
+    }
+*/
+
+    private void AddFog()
+{
+    if (fogPrefab != null)
+    {
+        
+        GameObject fogGameObject = Instantiate(fogPrefab, this.transform.position + fogPositionOffset, Quaternion.identity);
+        fogGameObject.name = "Fog";
+    
+        fogGameObject.transform.localScale = new Vector3(fogScale, fogScale, fogScale);
+        fogGameObject.transform.parent = this.transform; 
+    }
+}
+
     private void AddRain()
 {
     if (rainPrefab != null)
     {
+    
+        float randomHeight = Random.Range(rainHeightRange.x, rainHeightRange.y);
+        Vector3 rainPositionOffset = new Vector3(0, randomHeight, 0);
+
         GameObject rainGameObject = Instantiate(rainPrefab, this.transform.position + rainPositionOffset, Quaternion.identity);
         rainGameObject.name = "Rain";
         rainGameObject.transform.localScale = new Vector3(rainScale, rainScale, rainScale);
-        rainGameObject.transform.parent = this.transform; // Parent to terrain to keep the scene organized
+        rainGameObject.transform.parent = this.transform;
     }
 }
 
-    private void AddFog(){
-        GameObject fogGameObject = Instantiate(fog, this.transform.position, this.transform.rotation);
-        fogGameObject.name = "Fog";
-        fogGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2, fogHeight * terrainData.size.y, terrainData.size.z / 2);
-        fogGameObject.transform.localScale = new Vector3(terrainData.size.x, 1, terrainData.size.z);
-    }
-
-
-
+   
 
 private void AddSky()
 {

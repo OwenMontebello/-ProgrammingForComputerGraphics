@@ -79,7 +79,6 @@
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Script\Wall.cs" />
     <Compile Include="Assets\Script\HouseSpawner2.cs" />
-    <Compile Include="Assets\MagicParticlesLite\Script.cs" />
     <Compile Include="Assets\Script\Cube.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
